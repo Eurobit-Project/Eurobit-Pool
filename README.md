@@ -9,6 +9,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Table of Contents
 * [Features](#features)
+* [How To Set Up For Eurobit](eurobit)
 * [Community Support](#community--support)
 * [Pools Using This Software](#pools-using-this-software)
 * [Usage](#usage)
@@ -54,6 +55,16 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
   * Blocks found (pending, confirmed, and orphaned)
 * An easily extendable, responsive, light-weight front-end using API to display data
 
+#### How to use for Eurobit
+
+First, you need Eurobit-RPC or Eurobit-CLI (Eurobit-RPC is preffered but Eurobit-CLI works)
+Start the daemon with this command:
+> ./eurobitd --bind-rpc-ip 127.0.0.1 --bind-rpc-port 8081
+Then, start the rpc or cli wallet
+> ./Eurobit-RPC --container-file filename --bind-rpc-ip 127.0.0.1 --bind-rpc-port 8082
+or
+> ./Eurobit-CLI --wallet-file filename --bind-rpc-ip 127.0.0.1 --bind-rpc-port 8082
+
 #### Extra features
 
 * Admin panel
@@ -80,8 +91,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
-* http://democats.org
-* http://cryptonotepool.com/
+* http://pool.myeurobit.com
+* http://eurb.miningpool.host
 
 Usage
 ===
@@ -118,10 +129,12 @@ sudo apt-get install git build-essential redis-server libboost1.55-all-dev nodej
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/forknote/cryptonote-universal-pool.git pool
+git clone https://github.com/Eurobit-Project/Eurobit-Pool/.git pool
 cd pool
 npm update
 ```
+
+You need npm version 0.10.25, so use nvm to download it. Run the command sudo npm update as well.
 
 #### 2) Configuration
 
@@ -129,10 +142,10 @@ npm update
 Explanation for each field:
 ```javascript
 /* Used for storage in redis so multiple coins can share the same redis instance. */
-"coin": "dashcoin",
+"coin": "eurobit",
 
 /* Used for front-end display */
-"symbol": "DSH",
+"symbol": "EURB",
 
 /* Minimum units in a single coin, see COIN constant in DAEMON_CODE/src/cryptonote_config.h */
 "coinUnits": 1000000000000,
